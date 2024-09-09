@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx1yxyl76sjey"]
+
+[ext_resource type="Script" path="res://Code/Characters/Main.cs" id="1_3fwd2"]
+[ext_resource type="Texture2D" uid="uid://h52b8ffij452" path="res://Assets/Sprites/_PH_Basic Charakter Spritesheet.png" id="1_5rkm8"]
+[ext_resource type="PackedScene" uid="uid://c2wktbpfymeqf" path="res://Prefabs/Components/PlayerMovementComponent.tscn" id="3_0j1yf"]
+[ext_resource type="PackedScene" uid="uid://c3o0ebor1n2kh" path="res://Prefabs/Components/Resorces/Health/HealthComponent.tscn" id="4_ensew"]
+[ext_resource type="PackedScene" uid="uid://c86sce8w83a0g" path="res://Prefabs/Components/Resorces/HorizontalLineIngameResourceBar.tscn" id="5_218kk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tg52"]
+size = Vector2(12, 16)
+
+[node name="Main" type="CharacterBody2D"]
+script = ExtResource("1_3fwd2")
+
+[node name="BasicSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_5rkm8")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8tg52")
+
+[node name="PlayerMovementComponent" parent="." instance=ExtResource("3_0j1yf")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_ensew")]
+
+[node name="HorizontalLineIngameResourceBar" parent="." node_paths=PackedStringArray("ResourceComponent") instance=ExtResource("5_218kk")]
+position = Vector2(0, -17)
+scale = Vector2(0.5, 0.5)
+ResourceComponent = NodePath("../HealthComponent")

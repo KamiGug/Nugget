@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvpnvoo1n1th6"]
+
+[ext_resource type="Script" path="res://Code/Misc/Camera.cs" id="1_ycfwm"]
+
+[node name="Camera" type="Camera2D"]
+zoom = Vector2(4, 4)
+script = ExtResource("1_ycfwm")
